@@ -4,8 +4,7 @@
 >
   <ul class="flex flex-wrap -mb-px">
     <li class="me-2">
-      <a
-        href="#"
+      <button
         (click)="changeTab('Roles')"
         class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
         [ngClass]="
@@ -13,12 +12,12 @@
             ? 'border-b-2 text-blue-600 border-blue-600 active'
             : ''
         "
-        >Roles</a
       >
+        Roles
+      </button>
     </li>
     <li class="me-2">
-      <a
-        href="#"
+      <button
         (click)="changeTab('Designation')"
         class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
         aria-current="page"
@@ -27,8 +26,9 @@
             ? 'border-b-2 text-blue-600 border-blue-600 active'
             : ''
         "
-        >Designation</a
       >
+        Designation
+      </button>
     </li>
   </ul>
 </div>
