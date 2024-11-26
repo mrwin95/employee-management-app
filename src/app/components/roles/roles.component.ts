@@ -16,8 +16,9 @@ export class RolesComponent implements OnInit {
   roleLists: IRole[] = [];
   // or
   http = inject(HttpClient);
-
   // constructor(public http: HttpClient) {} same as above
+
+  isLoading: boolean = true;
 
   ngOnInit(): void {
     this.getAllRoles();
@@ -30,6 +31,7 @@ export class RolesComponent implements OnInit {
       )
       .subscribe((res: IAPiResponse<IRole[]>) => {
         this.roleLists = res.data;
+        this.isLoading = false;
       });
   }
 

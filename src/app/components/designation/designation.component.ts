@@ -13,14 +13,21 @@ import { CommonModule } from '@angular/common';
 })
 export class DesignationComponent implements OnInit {
   masterService = inject(MasterService);
+  // constructor(public masterService: MasterService) {}
+
   designationLists: IDesignation[] = [];
+  isLoading: boolean = true;
 
   ngOnInit(): void {
-    this.masterService
-      .getDesignations()
-      .subscribe((res: IAPiResponse<IDesignation[]>) => {
+    this.masterService.getDesignations().subscribe(
+      (res: IAPiResponse<IDesignation[]>) => {
         this.designationLists = res.data;
-      });
+        this.isLoading = false;
+      },
+      (error) => {
+        console.log(error);
+        this.isLoading = false;
+      }
+    );
   }
-  // constructor(public masterService: MasterService) {}
 }
