@@ -16,10 +16,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "23"
-      - name: Install dependencies
-        run: npm install
-      - name: Build Angular Application
-        run: pnpm run build-prod
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies and build
+        run: pnpm install && pnpm run build-prod
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
