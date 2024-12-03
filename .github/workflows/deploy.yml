@@ -29,4 +29,4 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Deploy to S3
         run: |
-          aws s3 sync ./dist/ s3://${{ secrets.S3_BUCKET_NAME }}/angular-template-project/browser --delete --cache-control "max-age=31536000, public"
+          aws s3 sync ./dist/angular-template-project/browser/ s3://${{ secrets.S3_BUCKET_NAME }} --delete --cache-control "max-age=31536000, public"
